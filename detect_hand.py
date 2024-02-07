@@ -20,4 +20,5 @@ def detectHand(hand):
 if __name__ == "__main__": #it will only run if this main file is running if any other is calling then it will not run
     detectHand(['C01','C13','C12','C11','C10']) #Royal flush
     detectHand(['C09','C13','C12','C11','C10']) #Straight flush
-    detectHand(['C09','S09','D09','H09','C10']) #Four of kind
+    detectHand(['C09','S09','D09','H09','C10']) #Four of kind 
+    

@@ -6,9 +6,25 @@ def detectHand(hand):
     
     for card in hand:
         # print(card[0],int(card[1:3]))
-        suits.append(card[0])
-        rank.append(int(card[1:]))
-       
+        suits.append(card[-1])
+        if len(card) == 3:
+            rank.append(10)
+        else:
+            if card[0]=='A':
+                rank.append(14)
+            elif card[0]=='K':
+                rank.append(13)
+            elif card[0]=='Q':
+                rank.append(12)
+            elif card[0]=='J':
+                rank.append(11)
+            else:
+                rank.append(int(card[0]))
+            # rank.append(card[0])
+        # rank.append(int(card[1:]))
+        
+    # print(suits,rank,hand)
+    
     rank = sorted(rank)
     print(suits,rank)
     hand = 1
@@ -16,7 +32,7 @@ def detectHand(hand):
     
     unique_cards = list(set(rank))
     if suits.count(suits[0])==5:  #counting color
-        if 1==rank[0] and 10==rank[1] and 11==rank[2] and 12==rank[3] and 13==rank[4]:#Royal flush
+        if 10==rank[0] and 11==rank[1] and 12==rank[2] and 13==rank[3] and 14==rank[4]:#Royal flush
             hand = 10
         elif rank[0]==rank[1]-1 and rank[0]==rank[1]-1 and rank[1]==rank[2]-1 and rank[2]==rank[3]-1:#Stright flush
         # elif all(rank[i] == rank[i+1]-1 for i in range(0,3)):  #Stright flush method 2
@@ -51,15 +67,15 @@ def detectHand(hand):
     return 0
 
 if __name__ == "__main__": #it will only run if this main file is running if any other is calling then it will not run
-    detectHand(['C01','C13','C12','C11','C10']) #Royal flush
-    detectHand(['C09','C13','C12','C11','C10']) #Straight flush
-    detectHand(['C09','S09','D09','H09','C10']) #Four of kind 
-    detectHand(['C09','S09','D09','H10','C10']) #Full house 
-    detectHand(['C09','S10','D11','H12','C13']) #flush 
-    detectHand(['S09','D10','C11','H12','H07']) #straight 
-    detectHand(['S09','D09','H09','H12','H06']) #Three of kind
-    detectHand(['S10','D09','H09','H06','H06']) #two pair
-    detectHand(['S10','D09','H05','H06','H06']) #pair
-    detectHand(['S10','D09','H05','H06','H01']) #high card
-     
-    
+    detectHand(['AC','KC','QC','JC','10C']) #Royal flush
+    detectHand(['9C','KC','QC','JC','10C']) #Straight flush
+  
+    detectHand(['9C','9S','9D','9H','10C']) #Four of kind 
+    detectHand(['9C','9S','9D','10H','10C']) #Full house 
+    detectHand(['9C','10S','JS','QH','KC']) #flush 
+    detectHand(['9S','10D','JC','QH','8H']) #straight 
+    detectHand(['9S','9D','9H','QH','6H']) #Three of kind
+    detectHand(['10S','9D','9H','6H','6H']) #two pair
+    #dsfgadfgsdfgsdfgxhgzdryh
+    detectHand(['10S','9D','5H','6H','5H']) #pair
+    detectHand(['2S','9D','5H','6H','10H']) #high card

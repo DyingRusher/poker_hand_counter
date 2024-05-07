@@ -1,32 +1,25 @@
 #here we are maintaing 2 list first for color and second value-p1
- 
+
 def detectHand(hand):
     suits=[]#color
     rank =[]#value
     
     for card in hand:
         # print(card[0],int(card[1:3]))
-        if card[0]=='d':
-            suits.append('D')
-        elif card[0] == 'c':
-            suits.append('C')
-        elif card[0] == 's':
-            suits.append('S')
-        elif card[0] == 'h':
-            suits.append('H')
+        suits.append(card[-1])
         
-        if card[-1]=='A':
+        if card[0]=='A':
             rank.append(14)
-        elif card[-1]=='K':
+        elif card[0]=='K':
             rank.append(13)
-        elif card[-1]=='Q':
+        elif card[0]=='Q':
             rank.append(12)
-        elif card[-1]=='J':
+        elif card[0]=='J':
             rank.append(11)
-        elif card[-1]=='0':
+        elif card[0]=='1':
             rank.append(10)
         else:
-            rank.append(int(card[-1]))
+            rank.append(int(card[0]))
             # rank.append(card[0])
         # rank.append(int(card[1:]))
         
@@ -69,19 +62,10 @@ def detectHand(hand):
         hand=max(hand,2)
     # print(unique_cards)
     
-    map_hand = {10:"Royal flush",9:"Stright Flush",8:"Four of kind",7:"Full house",6:"Flush",5:"Stright",4:"Three of kind",3:"Two pair",2:"Pair",1:"High card",0:"Testing"}
+    map_hand = {10:"Royal flush",9:"Straight Flush",8:"Four of kind",7:"Full house",6:"Flush",5:"Straight",4:"Three of kind",3:"Two pair",2:"Pair",1:"High card",0:"Testing"}
     print("rank",map_hand[hand])
-    return 0
+    return map_hand[hand]
 
 if __name__ == "__main__": #it will only run if this main file is running if any other is calling then it will not run
-    detectHand(['club_A','club_K','club_Q','club_J','club_10']) #Royal flush
-    detectHand(['club_9','club_K','club_Q','club_J','club_10']) #Straight flush
-    detectHand(['club_9','spade_9','dimond_9','heart_9','club_10']) #Four of kind 
-    detectHand(['club_9','spade_9','dimond_9','heart_10','club_10']) #Full house 
-    detectHand(['club_9','club_8','club_5','club_2','club_A']) #flush 
-    detectHand(['spade_9','dimond_10','club_J','heart_Q','heart_8']) #straight 
-    detectHand(['spade_9','dimond_9','heart_9','heart_Q','heart_K']) #Three of kind
-    detectHand(['spade_8','dimond_9','heart_9','heart_6','heart_8']) #two pair
-    #dsfgadfgsdfgsdfgxhgzdryh
-    detectHand(['spade_10','dimond_9','heart_5','heart_6','heart_9']) #pair
-    detectHand(['spade_2','dimond_9','heart_5','heart_6','heart_10']) #high card
+    detectHand(['Ac','Kc','Qc','Jc','10c']) #Royal flush
+    detectHand(['9c','Kc','Qc','Jc','10c']) #Straight flush

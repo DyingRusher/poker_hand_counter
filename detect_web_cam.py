@@ -7,7 +7,7 @@ from detect_hand import detectHand
 
 cap = cv2.VideoCapture(0)
 
-model = YOLO("./best (1).pt")
+model = YOLO("./best_model.pt")
 
 yolo_map = ['10c', '2c', '3c', '4c',
             '5c', '6c', '7c', '8c', 

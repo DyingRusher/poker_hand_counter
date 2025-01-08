@@ -3,7 +3,7 @@ I developed a real-time poker hand recognition system using YOLOv8 and OpenCV. T
 
 
 # working of project 
-run this commnd in terminal  pip isntall ultralytics opencv-python cv2
+run this commnd in terminal  pip install ultralytics opencv-python cv2
 run detect_web_cam.py python file
 
 Here is the demo:
